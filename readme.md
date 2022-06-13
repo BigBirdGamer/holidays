@@ -4,7 +4,8 @@
 
 * git init + gitignore
 * Express Hello World
-* express
-* nodemon
-* dotenv
-* deploy to herouku
+    * express
+    * nodemon
+    * dotenv
+* Deploy to herouku
+* create react project 
