@@ -10,4 +10,4 @@
 * Deploy to herouku
 * create react project 
 * cd react project file and npm install
-* 
+* Build react locally 
