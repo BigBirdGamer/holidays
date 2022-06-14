@@ -1,10 +1,9 @@
 import { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "../pages/Login"
-import Master from "../pages/master";
-import Detail from "../pages/detail";
+import Login from "./pages/Login"
+import Master from "./pages/Master";
+import Detail from "./pages/Detail";
 
 function App() {
   const [count, setCount] = useState(0);
