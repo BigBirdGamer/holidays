@@ -7,7 +7,7 @@ function Login() {
       <Navbar />
       <h2>Log in</h2>
       <fieldset>
-        <form action="" method="post">
+        <form action="http://localhost:2000/api/login" method="post">
           <input
             type="text"
             placeholder="Enter Username"
