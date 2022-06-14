@@ -1,29 +1,37 @@
-import React from "react";
-import Navbar from "../components/Navbar";
+import debug from "debug";
+const log = debug("simon:frontend:Login");
 
 function Login() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const info = {
+      username: event.target.elements.username.value,
+      password: event.target.elements.password.value,
+    };
+    console.log(info);
+
+    fetch("/api/login/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(info)//'{"name":"admin", "password":"abc"}',
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  };
+
   return (
-    <div>
-      <Navbar />
-      <h2>Log in</h2>
+    <form onSubmit={handleSubmit}>
       <fieldset>
-        <form action="http://localhost:2000/api/login" method="post">
-          <input
-            type="text"
-            placeholder="Enter Username"
-            name="uname"
-            required
-          />
-          <input
-            type="password"
-            placeholder="Enter Password"
-            name="psw"
-            required
-          ></input>
-          <button type="submit">Login</button>
-        </form>
+        <legend>Login</legend>
+        <label htmlFor="username">Username</label>
+        <input name="username" id="username" />
+        <label htmlFor="password">Password</label>
+        <input name="password" id="password" />
+        <button>Login</button>
       </fieldset>
-    </div>
+    </form>
   );
 }
 
