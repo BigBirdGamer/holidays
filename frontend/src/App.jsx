@@ -2,18 +2,22 @@ import { useState } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
-import Master from "./pages/Master";
+import Main from "./pages/Main";
 import Detail from "./pages/Detail";
+import Navbar from "./components/Navbar";
+import {atom} from "jotai"
+
+export const userAtom = atom({})
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <div className="App">
       <BrowserRouter>
+      <Navbar/>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/holidays/master" element={<Master />} />
+          <Route path="/holidays/main" element={<Main />} />
           <Route path="/holidays/:id" element={<Detail />} />
         </Routes>
       </BrowserRouter>

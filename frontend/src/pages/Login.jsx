@@ -1,7 +1,11 @@
-import debug from "debug";
-const log = debug("simon:frontend:Login");
+import {useState} from 'react'
+import {useAtom} from "jotai"
+import {userAtom} from "../App"
 
 function Login() {
+  const [user, setUser] = useAtom(userAtom);
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const info = {
@@ -18,7 +22,7 @@ function Login() {
       body: JSON.stringify(info)//'{"name":"admin", "password":"abc"}',
     })
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => setUser(data.data));
   };
 
   return (
